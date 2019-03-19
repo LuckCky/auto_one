@@ -12,4 +12,5 @@ you might need to add path to test directory to PYTHONPATH
 
 
 Pipeline is formed in pipelines/pipeline_one.json
-You can easily add, remove, change any step of pipeline
+You can easily add, remove, change any step of pipeline. The only requirement is that each function must return list of list with data
+
