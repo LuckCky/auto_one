@@ -1,0 +1,14 @@
+{
+  "pipelines": {
+    "price_prediction": [
+      ["load_from_file", {"separator": ";"}],
+      ["form_data_from_headers", {"separator": ";", "headers": "engine-location;num-of-cylinders;engine-size;weight;horsepower;aspiration;price;make"}],
+      ["clean", {"unwanted_data": "-", "separator": ";"}],
+      ["one_hot_encode", {"column": "engine-location"}],
+      ["convert_field_to_num", {"column": "num-of-cylinders"}],
+      ["convert_field_to_num", {"column": "aspiration"}],
+      ["change_field_type", {"column_name": ["engine-size", "weight"], "new_type": "int"}],
+      ["change_field_type", {"column_name": ["horsepower", "price"], "new_type": "float"}]
+    ]
+  }
+}

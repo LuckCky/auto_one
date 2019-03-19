@@ -1,0 +1,17 @@
+{
+  "data_settings": {
+    "separator": ";",
+    "headers": {
+      "price_prediction": "engine-location;num-of-cylinders;engine-size;weight;horsepower;aspiration;price;make;"
+    }
+  },
+    "pipelines": {
+      "price_prediction": [
+        ["load_from_file", {}],
+        ["clean", {"unwanted_data": "-"}],
+        ["one_hot_encode", {"column": "engine-location"}],
+        ["convert_field_to_num", {"column": "num-of-cylinders"}],
+        ["convert_field_to_num", {"column": "aspiration"}]
+      ]
+    }
+}
