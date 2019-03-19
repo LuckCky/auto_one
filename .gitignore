@@ -2,3 +2,4 @@
 __pycache__/
 logs/*
 tests/logs/*
+one_hot_encoded_engine-location.txt
