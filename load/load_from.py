@@ -1,6 +1,6 @@
-from sys_logger import init_sys_logger
+from utils.sys_logger import init_sys_logger
 
-logger = init_sys_logger('load_from')
+logger = init_sys_logger(__name__)
 
 
 def load_from_file(source, separator):

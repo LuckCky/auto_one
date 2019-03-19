@@ -1,10 +1,10 @@
 import json
 
 from load import load_mapping
-from sys_logger import init_sys_logger
+from utils.sys_logger import init_sys_logger
 from transforms import transforms_mapping
 
-logger = init_sys_logger('pipeline_actions')
+logger = init_sys_logger(__name__)
 
 
 def get_pipeline(pipeline_file, pipeline_name):
@@ -23,7 +23,10 @@ def get_pipeline(pipeline_file, pipeline_name):
 
 
 def get_actions_mapping():
+    logger.info('starting to get actions mapping')
     all_actions_mapping = {}
     for mapping in (load_mapping, transforms_mapping):
         all_actions_mapping.update(mapping)
+    logger.info('actions mapping loaded successfully')
+    logger.info('actions mapping = {}'.format(all_actions_mapping))
     return all_actions_mapping

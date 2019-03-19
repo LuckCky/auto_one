@@ -1,8 +1,13 @@
 from collections import OrderedDict
 import json
 
+from utils.sys_logger import init_sys_logger
+
+logger = init_sys_logger(__name__)
+
 
 def one_hot_encode(data, column, save_file=True):
+    logger.info('starting one-hot-encode for {}'.format(column))
     distinct_values = OrderedDict()
     index_of_column = data[0].index(column)
     for i in range(1, len(data)):
@@ -20,4 +25,5 @@ def one_hot_encode(data, column, save_file=True):
     if save_file:
         with open('one_hot_encoded_{}.txt'.format(column), 'w') as file:
             file.write(json.dumps(one_hot_encoded))
+    logger.info('{} one-hot-encoded and saved to file {}'.format(column, 'one_hot_encoded_{}.txt'.format(column)))
     return data
