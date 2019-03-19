@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import json
 
 from load import load_mapping
@@ -8,6 +10,13 @@ logger = init_sys_logger(__name__)
 
 
 def get_pipeline(pipeline_file, pipeline_name):
+    """
+    Gets pipeline from json
+    Args:
+        pipeline_file: string; path to file with steps of transforming data
+        pipeline_name: string; name of ETL pipeline
+    Returns: dict; dict of steps according to which data will be transformed
+    """
     logger.info('starting to extract pipeline ({}) from {}'.format(pipeline_name, pipeline_file))
     try:
         with open(pipeline_file) as file:
@@ -23,6 +32,10 @@ def get_pipeline(pipeline_file, pipeline_name):
 
 
 def get_actions_mapping():
+    """
+    Maps action names with corresponding functions
+    Returns: dict; dict of action names and action functions
+    """
     logger.info('starting to get actions mapping')
     all_actions_mapping = {}
     for mapping in (load_mapping, transforms_mapping):

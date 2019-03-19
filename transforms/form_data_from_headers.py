@@ -1,9 +1,19 @@
+#!/usr/bin/python3
+
 from utils.sys_logger import init_sys_logger
 
 logger = init_sys_logger(__name__)
 
 
 def form_data_from_headers(data, headers, separator):
+    """
+    Leaves in data only those fields which are from given columns
+    Args:
+        data: list; list of lists with data, first row is headers
+        headers: list; this fields with data stay in list of lists, other are removed
+        separator: string; separator (delimiter) used in file to separate one field from other
+    Returns: list; fields of specified columns only
+    """
     logger.info('starting to form data from headers')
     headers = headers.split(separator)
     indexes = []

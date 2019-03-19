@@ -5,6 +5,12 @@ import logging.handlers
 
 
 def init_sys_logger(name):
+    """
+    Defines logger
+    Args:
+        name: string; name of logger
+    Returns: logger
+    """
     _logger = logging.getLogger(name=name)
     path_to_log_file = "./logs/" + name + ".log"
     file_handler = logging.handlers.RotatingFileHandler(filename=path_to_log_file,

@@ -4,6 +4,13 @@ logger = init_sys_logger(__name__)
 
 
 def load_from_file(source, separator):
+    """
+    Loads data from any file with proper formatted data, e.g. data1;data2;data3 and etc.
+    Args:
+        source: string; path to file with data
+        separator: string; separator (delimiter) used in file to separate one field from other
+    Returns: list; returns loaded data as list of lists having first list of headers
+    """
     try:
         data = []
         with open(source) as file:

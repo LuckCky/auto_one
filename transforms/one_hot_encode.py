@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from collections import OrderedDict
 import json
 
@@ -7,6 +9,14 @@ logger = init_sys_logger(__name__)
 
 
 def one_hot_encode(data, column, save_file=True):
+    """
+    Encodes string data to list of 1 and 0
+    Args:
+        data: list; list of lists with data, first row is headers
+        column: string; column where data needs to be one-hot-encoded
+        save_file: boolean; if true mappping of strings to list of 1 and 0 is save on disk
+    Returns: list; list of lists with one column encoded
+    """
     logger.info('starting one-hot-encode for {}'.format(column))
     distinct_values = OrderedDict()
     index_of_column = data[0].index(column)
