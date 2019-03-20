@@ -16,4 +16,4 @@ You can easily add, remove, change any step of pipeline. The only requirement is
 You can add different pipelines to the same file and reuse functions from another pipeline
 
 
-Please not that one-hot-encoding is done with lists of 0 and 1. But in PDF with task field which is being one-hot-encoded is required to be integer
+Please note that one-hot-encoding is done with lists of 0 and 1. But in PDF with task field which is being one-hot-encoded is required to be integer
