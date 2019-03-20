@@ -7,10 +7,10 @@ _cd tests/_
 
 _python3 -m unittest -v_
 
-you might need to add path to test directory to PYTHONPATH
+you might need to add path to project directory to PYTHONPATH
 
 
 
 Pipeline is formed in pipelines/pipeline_one.json
 You can easily add, remove, change any step of pipeline. The only requirement is that each function must return list of lists with data
-
+You can add different pipelines to the same file and reuse functions from another pipeline
