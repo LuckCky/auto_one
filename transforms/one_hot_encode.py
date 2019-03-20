@@ -14,7 +14,7 @@ def one_hot_encode(data, column, save_file=True):
     Args:
         data: list; list of lists with data, first row is headers
         column: string; column where data needs to be one-hot-encoded
-        save_file: boolean; if true mappping of strings to list of 1 and 0 is save on disk
+        save_file: boolean; if true mapping of strings to list of 1 and 0 is save on disk
     Returns: list; list of lists with one column encoded
     """
     logger.info('starting one-hot-encode for {}'.format(column))
@@ -35,5 +35,6 @@ def one_hot_encode(data, column, save_file=True):
     if save_file:
         with open('one_hot_encoded_{}.txt'.format(column), 'w') as file:
             file.write(json.dumps(one_hot_encoded))
-    logger.info('{} one-hot-encoded and saved to file {}'.format(column, 'one_hot_encoded_{}.txt'.format(column)))
+        logger.info('{} one-hot-encoded and saved to file {}'.format(column, 'one_hot_encoded_{}.txt'.format(column)))
+    logger.info('{} one-hot-encoded and NOT saved to file'.format(column))
     return data
